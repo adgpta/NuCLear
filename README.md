@@ -3,12 +3,12 @@
 #### Version: 4.1
 #### Author: Amrita Das Gupta
 #### Publications:
-[Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning] (https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1);
+[Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1)  
 Amrita Das Gupta, Livia Asan, Jennifer John, Carlo A. Beretta, Thomas Kuner, Johannes Knabbe
 
 ## Outline
 
-This version of NuCLear can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described in the reference material.
+This version of NuCLear can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described in the paper.
 
 Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains sevaral classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, With good training data, NuCLear should work with any fluorescence-based microscopy images and perform in any organ or model system. 
 ![1](https://github.com/adgpta/NuCLear/assets/77382748/fc7d4557-1a13-4346-950a-4753b178c36a)
