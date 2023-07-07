@@ -5,7 +5,9 @@
 ### Reference: https://doi.org/10.1101/2022.10.03.510670
 #
 ### How to run: 
-Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. NuCLearMAIN.m is divided into training and the Classification module. 
+Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. 
+
+NuCLearMAIN.m is divided into training and the Classification module. 
 #
 ### Training Module:
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. "toTrain" contains all the ids for the classes that needs to be trained. 
