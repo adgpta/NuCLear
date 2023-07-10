@@ -8,12 +8,15 @@ Amrita Das Gupta, Livia Asan, Jennifer John, Carlo A. Beretta, Thomas Kuner, Joh
 
 ## Outline
 
-This version of NuCLear can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described in the paper.
+This version of NuCLear can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described in the [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1).
 
 
+![1111](https://github.com/adgpta/NuCLear/assets/77382748/94f90f01-bd83-421b-849c-1970c171756c)
 
-Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains sevaral classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, With good training data, NuCLear should work with any fluorescence-based microscopy images and perform in any organ or model system. 
-![1](https://github.com/adgpta/NuCLear/assets/77382748/43406714-5bd0-43db-a5a8-7a41aecc4943)
+Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains sevaral classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, With good training data, NuCLear would be able to work with any fluorescence-based microscopy images and perform in any organ or model system. 
+
+
+![3](https://github.com/adgpta/NuCLear/assets/77382748/8a7ec983-fb8e-40a8-897f-1aeec0b46bc3)
 
 
 ## Methodology
@@ -26,7 +29,7 @@ These ground truth sets (labelled and raw images) were used for training a segme
 
 Using the [PyRadiomics](https://github.com/AIM-Harvard/pyradiomics) python package, in total 107 radiomics features were extracted for each segmented nucleus after segmentation using StarDist, including, but not limited, to morphological features, intensity features and texture features. 
 
-A GUI based version for training of the segmentation and extraction of radiomics feature can be found [here](https://github.com/SFB1158RDM/NucleusAI).
+A GUI based version for segmentation and extraction of radiomics feature can be found [here](https://github.com/SFB1158RDM/NucleusAI).
 
 
 
