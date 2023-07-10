@@ -53,12 +53,12 @@ To increase the number of nuclei for training and include possible variations, s
 
 The following scripts has been created with Python 3.9.16.
 
-1. Clone the repository.
+1. Clone the repository 'SynthGen'.
 2. Create a virtual environment and install "requirements.txt" file using
    ```
    pip install -r requirements.txt 
    ```
-3. Run main.py. When pop up boxes appear, navigate to the folder for the input files to be used to create synthetic data and next set the export folder. The evaluation data is saved in the export folder.
+3. Run synthgen.py. When the pop up boxes appear, navigate to the folder for the input files to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder.
 4. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
