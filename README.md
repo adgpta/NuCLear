@@ -88,7 +88,8 @@ The following scripts has been created with Python 3.10.
 
 **TO NOTE:**
 _While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the table name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron)._
-#
+
+### _Training NuCLear classifiers
 
 Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. 
 
