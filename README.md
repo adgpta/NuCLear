@@ -51,14 +51,19 @@ The GFP images were segmented with each nuclei being assigned an unique value an
 #### Generate synthetic / augmented data
 To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own synthetic data follow the instructions below to run the python script:
 
-The following scripts has been created with Python 3.9.16.
+The following scripts has been created with Python 3.10.
 
 1. Clone the repository 'SynthGen'.
 2. Create a virtual environment and install "requirements.txt" file using
    ```
    pip install -r requirements.txt 
    ```
-3. Run synthgen.py. When the pop up boxes appear, navigate to the folder for the input files to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder.
+3. Run synthgen.py. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder. This script will create x9 fold augmented data. To change the number of samples, edit line #45 in synthgen.py: 
+   ```
+   # Number of samples to generate = synthSize * length(number of samples in ground truth dataset)
+    synthSize = 9
+   ````
+   
 4. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
@@ -73,6 +78,9 @@ The following scripts has been created with Python 3.9.16.
     ```
     
 
+#### Create training datasets
+- For MATLAB,
+  For predefined training data, load "NuCLearTrainingWorkspace.mat" provided in the workspace folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as tables 
 
 
 Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. 
