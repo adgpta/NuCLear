@@ -86,7 +86,9 @@ The following scripts has been created with Python 3.10.
 - For Python 
   For predefined training data, load "NuCLearTrainingWorkspace.pkl" provided in the 'Workspace' folder. To create your own training datasets, load all csvs as a dictionary (groundtruth + synthesized data) as tables and save as pickle file. 
 
-
+**TO NOTE:**
+_While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the table name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron)._
+#
 
 Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. 
 
