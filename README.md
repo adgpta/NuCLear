@@ -59,14 +59,19 @@ The following scripts has been created with Python 3.9.16.
    pip install -r requirements.txt 
    ```
 3. Run main.py. When pop up boxes appear, navigate to the folder for the input files to be used to create synthetic data and next set the export folder. The evaluation data is saved in the export folder.
-4. To read evaluation data: Load the Evaluations file:
+4. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
+    
     with open(file_name, 'rb') as file:
         Evaluations = pickle.load(file)
 
     Evaluations['CELLTYPE'].get_score()
+    Evaluations['CELLTYPE'].get_properties()
+    Evaluations['CELLTYPE'].get_details(property_name='Column Shapes')
+
     ```
+    
 
 
 
