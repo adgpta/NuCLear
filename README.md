@@ -49,7 +49,7 @@ The GFP images were segmented with each nuclei being assigned an unique value an
 ![5](https://github.com/adgpta/NuCLear/assets/77382748/374a30a0-15b3-4b57-a65b-3febc61fc130)
 
 #### Generate synthetic / augmented data
-To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the synthetic data vault (SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own synthetic data follow the instructions below to run the python script:
+To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own synthetic data follow the instructions below to run the python script:
 
 The following scripts has been created with Python 3.9.16.
 
@@ -58,8 +58,15 @@ The following scripts has been created with Python 3.9.16.
    ```
    pip install -r requirements.txt 
    ```
-   
+3. Run main.py. When pop up boxes appear, navigate to the folder for the input files to be used to create synthetic data and next set the export folder. The evaluation data is saved in the export folder.
+4. To read evaluation data: Load the Evaluations file:
+    ```
+    file_name = os.path.join(exportPath, 'Evaluations.pkl')
+    with open(file_name, 'rb') as file:
+        Evaluations = pickle.load(file)
 
+    Evaluations['CELLTYPE'].get_score()
+    ```
 
 
 
