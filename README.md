@@ -44,7 +44,7 @@ These ground truth sets (labelled and raw images) were used for training a segme
   
 Using the [PyRadiomics](https://github.com/AIM-Harvard/pyradiomics) python package, in total 107 radiomics features were extracted for each segmented nucleus after segmentation using StarDist, including, but not limited, to morphological features, intensity features and texture features. 
 
-The features are further used to train classifier models for each cell type provided in the ground truth data. This includes major cell types and sub types. This version can classify between the major cell types of Neurons, Glia and endothelial cells, along with the neuronal subtypes: Excitatory and inhibitory neurons and glial subtypes: Astroglia, microglia and oligodendroglia.
+The features are further used to train classifier models for each cell type provided in the ground truth data. This includes major cell types and sub types. This version can classify between the major cell types of Neurons, Glia and endothelial cells, along with the neuronal subtypes: excitatory and inhibitory neurons and glial subtypes: astroglia, microglia and oligodendroglia.
 A GUI based version for segmentation and extraction of radiomics feature can be found [here](https://github.com/SFB1158RDM/NucleusAI).
   
 
@@ -105,15 +105,19 @@ The following scripts has been created with Python 3.10.
 _While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the table name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron)._
 
 ### _Training NuCLear classifiers_
-#### - MATLAB
-Add folder containing all scripts, workspaces and models to MATLAB path. Run NuCLearMAIN.m. 
-
-NuCLearMAIN.m is divided into training and the Classification modules. 
+#### MATLAB
+- Add folder containing all scripts and previously saved workspaces to MATLAB path. _/(Optional)_ add folders containing provided workspaces and models if using predefined ground truths and pretrained models.
+- Run NuCLearTrainingModule.m.
 
 #### Training Module:
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. "toTrain" contains all the ids for the classes that needs to be trained. 
 
 Change directory to folder with NuCLearTrainingWorkspace.mat for default ground truth dataset. NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset (tableOrig) or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset (tableSynth). Training multiple classifiers using datasets provided as tables in NuCLearTrainingWorkspace. Combines all data (including synthetically generated data in some case) to create dataset for training. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. This module saves the training models as a structure and the validation accuracies for each model as an excel to the export path.
+
+### _Cell type classification_
+#### MATLAB
+- Add folder containing all scripts to MATLAB path. Add folders containing trained models.
+- Run NuCLearClassificationModule.m.
 
 #### Classification Module:
 Change directory to folder with NuCLearModels.mat to extract the models for classification. Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
