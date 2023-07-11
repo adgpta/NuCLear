@@ -113,24 +113,43 @@ Inhibitory Neuron = "100"
 **TO NOTE:**
 _While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the variable name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron)._
 
+### _Feature selection_
+To reduce overfitting, a sequential feature selection algorithm was used to select the most relevant features with minimum loss function (snippet below). 'tableOrig' is the table with all ground truth datasets without any synthetic data. For each training / classification ensemble, sequential feature selection was run to find the best columns to use, for eg., once on all the major classes and a second time for only excitatory and inhibitory neurons.
+
+```
+tableOrig = table2array(tableOrig);
+tableOrig2 = tableOrig(tableOrig2(:,1) ~= 0,:);
+nuclei = (tableOrig2(:,1));
+c2 = cvpartition(nuclei,'k',10); 
+opts = statset('Display','iter','UseParallel',true);
+fun = @(XT,yT,Xt,yt)loss(fitcecoc(XT,yT),Xt,yt);
+[fs_all,history_all] = sequentialfs(fun,(tableOrig2(:,2:end)),nuclei,'cv',c2,'options',opts)
+
+```
+ 
 ### _Training NuCLear classifiers_
 #### Training Module:
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. "toTrain" contains all the ids for the classes that needs to be trained. 
 
 NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset (tableOrig) or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset (tableSynth). Training multiple classifiers using datasets provided as tables in NuCLearTrainingWorkspace. Combines all data (including synthetically generated data in some case) to create dataset for training. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. This module saves the training models as a structure and the validation accuracies for each model as an excel to the export path.
 
+<img align="right" height = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/09f49f93-b58a-4141-87ff-0fe8554c7c36">
+  
 #### MATLAB
-- Add folder containing all scripts and previously saved workspaces to MATLAB path. _/(Optional)_ add folders containing provided workspaces and models if using predefined ground truths and pretrained models.
-- Run NuCLearTrainingModule.m.
-- Load training workspace containing all training datasets created earlier.
-- Select the datasets that are to be used for training. Training will vary depending on the datasets used. All major categories will be trained together and the sub categories will be trained with only the other sub categories of the same major category. eg. if training excitatory and inhibitory neurons, they will only be trained against each other.
-- Enter the definitions for new classes. The defaults are already added.
-- Select which models to train.
 
+1. Add folder containing all scripts and previously saved workspaces to MATLAB path. _(Optional)_ add folders containing provided workspaces and models if using predefined ground truths and pretrained models.
+2. Run NuCLearTrainingModule.m.
+3. Load training workspace containing all training datasets created earlier.
+4. Select the datasets that are to be used for training. Training will vary depending on the datasets used. All major categories will be trained together and the sub categories will be trained with only the other sub categories of the same major category. eg. if training excitatory and inhibitory neurons, they will only be trained against each other.
+5. Enter the definitions for new classes if any. The defaults are already added.
+6. Select which models to train.
+7. Save model when prompted.
+
+The model saved is a structure containining the trained models. 'ClassDef' contains information about datasets used for training and 'TrainedModels' shows the names of the models that are trained. 'trainedNet' contains the trained classifiers, accuracy, test set and prediction sets. For more details, refer to the publication.
 
 ### _Cell type classification_
 #### Classification Module:
-Change directory to folder with NuCLearModels.mat to extract the models for classification. Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
+Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
 
 #### MATLAB
 - Add folder containing all scripts to MATLAB path. Add folders containing trained models.
