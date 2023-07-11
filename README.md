@@ -64,7 +64,7 @@ The GFP images were segmented with each nuclei being assigned an unique value an
 
 # EDIT BELOW:
 ### _Generate synthetic / augmented data_ 
-To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own synthetic data follow the instructions below to run the python script:
+To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own, _**select only the radiomics features columns to be used for creating the synthetic datasets**_ and remove all non-essential columns from the csv files extracted via Pyradiomics. To create synthetic data follow the instructions below to run the python script:
 
 
 The following scripts has been created with Python 3.10.
@@ -95,8 +95,20 @@ The following scripts has been created with Python 3.10.
     
 
 ### _Create training datasets_
+For training datasets, all the ground truth and augmented data should have an assigned Id in the first column of the csvs (both ground truth and synthetic datasets). The default class names and ids are as follows:
+```
+Neuron = "0"
+Astroglia = "1"
+Microglia = "2"
+Oligodendroglia = "3"
+Endothelial = "4"
+Excitatory Neuron = "99"
+Inhibitory Neuron = "100"
+```
+
+
 - For MATLAB:
-  For predefined training data, load "NuCLearTrainingWorkspace.mat" provided in the 'Workspace' folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as tables and save the workspace.
+  For predefined training data, load "NuCLearTrainingWorkspace.mat" provided in the 'Workspace' folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as arrays and save the headers to 'header' variable (refer to NuCLearTrainingWorkspace.mat for structure). Save the workspace.
 ## CHECK
 - For Python:
   For predefined training data, load "NuCLearTrainingWorkspace.pkl" provided in the 'Workspace' folder. To create your own training datasets, load all csvs as a dictionary (groundtruth + synthesized data) as tables and save as pickle file. 
