@@ -103,15 +103,15 @@ The following scripts has been created with Python 3.10.
 
 ### _Create training datasets_
 For training datasets, all the ground truth and augmented data should have an assigned Id in the first column of the csvs (both ground truth and synthetic datasets). The default class names and ids are as follows:
-```
-Neuron = "0"
-Astroglia = "1"
-Microglia = "2"
-Oligodendroglia = "3"
-Endothelial = "4"
-Excitatory Neuron = "99"
-Inhibitory Neuron = "100"
-```
+  ```
+  Neuron = "0"
+  Astroglia = "1"
+  Microglia = "2"
+  Oligodendroglia = "3"
+  Endothelial = "4"
+  Excitatory Neuron = "99"
+  Inhibitory Neuron = "100"
+  ```
 
 
 - For MATLAB:
