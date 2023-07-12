@@ -1,8 +1,10 @@
-<img align="right" width="400" height="250" src="https://github.com/adgpta/NuCLear/assets/77382748/c976b1cb-26da-4c01-a68e-711646a15fa4">
 
-# _NuCLear_ 
 
-#### Nucleus-instructed tissue composition using deep learning - A neural network based cell type classification using nuclei features from fluorescent imaging in 3D.
+![7](https://github.com/adgpta/NuCLear/assets/77382748/57eef5e2-cdde-4853-bc9a-32a09bb09d10)
+
+<img align="right" src="https://github.com/adgpta/NuCLear/assets/77382748/7e29c01e-1caa-43bb-8e29-ac332515a7c8">
+
+### Nucleus-instructed tissue composition using deep learning - _A neural network based cell type classification using nuclei features from fluorescent imaging in 3D_.
 #### Version: 4.1
 #### Author: Amrita Das Gupta
 #### Publications:
@@ -13,10 +15,12 @@ Amrita Das Gupta, Livia Asan, Jennifer John, Carlo A. Beretta, Thomas Kuner, Joh
 
 NuCLear is a MLP neural network based cell type classification which can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1).
 
-
 ![1111](https://github.com/adgpta/NuCLear/assets/77382748/94f90f01-bd83-421b-849c-1970c171756c)
 
+
 Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains sevaral classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, With good training data, NuCLear would be able to work with any fluorescence-based microscopy images and perform in any organ or model system. 
+
+
 
 
 ![3](https://github.com/adgpta/NuCLear/assets/77382748/8a7ec983-fb8e-40a8-897f-1aeec0b46bc3)
@@ -133,9 +137,11 @@ Designed to train any number of major classes and sub classes of cells. The trai
 
 NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset (tableOrig) or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset (tableSynth). Training multiple classifiers using datasets provided as tables in NuCLearTrainingWorkspace. Combines all data (including synthetically generated data in some case) to create dataset for training. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. This module saves the training models as a structure and the validation accuracies for each model as an excel to the export path.
 
-<img align="right" height = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/09f49f93-b58a-4141-87ff-0fe8554c7c36">
+
   
 #### MATLAB
+
+<img align="right" height = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/2f193042-2c4b-4805-bc45-92fa704cb20a">
 
 1. Add folder containing all scripts and previously saved workspaces to MATLAB path. _(Optional)_ add folders containing provided workspaces and models if using predefined ground truths and pretrained models.
 2. Run NuCLearTrainingModule.m.
