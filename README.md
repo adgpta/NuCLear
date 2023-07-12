@@ -65,18 +65,25 @@ To increase the number of nuclei for training and include possible variations, s
 
 The following scripts has been created with Python 3.10.
 
-1. Download the repository 'SynthGen'.
-2. Create a virtual environment and install "requirements.txt" file using
+1. Clone the repository 'SynthGen'.
+   ```
+   git clone https://github.com/adgpta/SynthGen
+   
+   ```
+   
+3. Create a virtual environment and install "requirements.txt" file using
    ```
    pip install -r requirements.txt 
    ```
-3. Run synthgen.py. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder. This script will create x9 fold augmented data. To change the number of samples, edit line #45 in synthgen.py: 
-   ```
-   # Number of samples to generate = synthSize * length(number of samples in ground truth dataset)
-    synthSize = 9
-   ````
+4. Run synthgen.py with the times of synthetic data to be generated. If no input it provided this script will create x9 fold augmented data by default.
    
-4. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
+  ```
+ python synthgen.py 9
+  ```
+
+5. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder as a dictionary file. 
+   
+6. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
     
