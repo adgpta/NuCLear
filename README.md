@@ -2,7 +2,7 @@
 
 ![7](https://github.com/adgpta/NuCLear/assets/77382748/57eef5e2-cdde-4853-bc9a-32a09bb09d10)
 
-<img align="right" src="https://github.com/adgpta/NuCLear/assets/77382748/7e29c01e-1caa-43bb-8e29-ac332515a7c8">
+<img align="right" height = 240 src="https://github.com/adgpta/NuCLear/assets/77382748/7e29c01e-1caa-43bb-8e29-ac332515a7c8">
 
 ### Nucleus-instructed tissue composition using deep learning - _A neural network based cell type classification using nuclei features from fluorescent imaging in 3D_.
 #### Version: 4.1
