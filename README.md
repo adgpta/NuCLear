@@ -87,7 +87,7 @@ The following scripts has been created with Python 3.10.
 
 4. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder as a dictionary file. 
    
-5. To read evaluation data load the 'Evaluations.pkl' file via any IDE console using the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
+5. To read evaluation data 'Evaluations.pkl' file via any IDE console use the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
     
