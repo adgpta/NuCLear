@@ -138,7 +138,7 @@ fun = @(XT,yT,Xt,yt)loss(fitcecoc(XT,yT),Xt,yt);
 ```
 
 ### _Training NuCLear classifiers_
-#### Training Module:
+#### **Training Module:**
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. 'ClassDef' is defined for default cell types. 
 
 NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
@@ -158,7 +158,7 @@ NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature
 The file saved is a structure containining the trained models. 'ClassDef' contains information about datasets used for training and 'TrainedModels' shows the names of the models that are trained. 'trainedNet' contains the trained classifiers, accuracy, test set and prediction sets. For more details, refer to the publication.
 
 ### _Cell type classification_
-#### Classification Module:
+#### **Classification Module:**
 Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
 
 #### MATLAB
