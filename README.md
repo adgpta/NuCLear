@@ -69,12 +69,12 @@ The following scripts has been created with Python 3.10.
    ```
    git clone https://github.com/adgpta/SynthGen.git
    ```
-2. CONDA: Create a virtual environment and install "requirements.txt" file using
+2. **Conda**: Create a virtual environment and install "requirements.txt" file using
    ```
    conda create --name synthgen python=3.10
    pip install -r requirements.txt
    ```
-   OR in IDE: Open cloned repository as a new project. In terminal enter:
+   OR in **IDE**: Open cloned repository as a new project. In terminal enter:
    ```
    pip install -r requirements.txt
    ```
