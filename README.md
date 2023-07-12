@@ -21,8 +21,6 @@ NuCLear is a MLP neural network based cell type classification which can be used
 Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains sevaral classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, With good training data, NuCLear would be able to work with any fluorescence-based microscopy images and perform in any organ or model system. 
 
 
-
-
 ![3](https://github.com/adgpta/NuCLear/assets/77382748/8a7ec983-fb8e-40a8-897f-1aeec0b46bc3)
 
 
@@ -130,14 +128,12 @@ fun = @(XT,yT,Xt,yt)loss(fitcecoc(XT,yT),Xt,yt);
 [fs_all,history_all] = sequentialfs(fun,(tableOrig2(:,2:end)),nuclei,'cv',c2,'options',opts)
 
 ```
- 
+
 ### _Training NuCLear classifiers_
 #### Training Module:
-Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. "toTrain" contains all the ids for the classes that needs to be trained. 
+Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. 'ClassDef' is defined for default cell types. 
 
-NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset (tableOrig) or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset (tableSynth). Training multiple classifiers using datasets provided as tables in NuCLearTrainingWorkspace. Combines all data (including synthetically generated data in some case) to create dataset for training. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. This module saves the training models as a structure and the validation accuracies for each model as an excel to the export path.
-
-
+NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
   
 #### MATLAB
 
@@ -151,13 +147,19 @@ NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature
 6. Select which models to train.
 7. Save model when prompted.
 
-The model saved is a structure containining the trained models. 'ClassDef' contains information about datasets used for training and 'TrainedModels' shows the names of the models that are trained. 'trainedNet' contains the trained classifiers, accuracy, test set and prediction sets. For more details, refer to the publication.
+The file saved is a structure containining the trained models. 'ClassDef' contains information about datasets used for training and 'TrainedModels' shows the names of the models that are trained. 'trainedNet' contains the trained classifiers, accuracy, test set and prediction sets. For more details, refer to the publication.
 
 ### _Cell type classification_
 #### Classification Module:
 Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
 
 #### MATLAB
-- Add folder containing all scripts to MATLAB path. Add folders containing trained models.
-- Run NuCLearClassificationModule.m.
+
+1. Add folder containing all scripts and previously saved models to MATLAB path.
+2. Run NuCLearClassificationModule.m.
+3. Select model to use for classification.
+4. Specify path to input directory containing csvs extracted via PyRadiomics.
+5. Select training model. _(Optional: Only for multiple models save in a single file)_.
+
+The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
 
