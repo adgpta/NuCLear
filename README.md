@@ -67,10 +67,9 @@ The following scripts has been created with Python 3.10.
 
 1. Clone the repository 'SynthGen'.
    ```
-   git clone https://github.com/adgpta/SynthGen
+   git clone https://github.com/adgpta/SynthGen.git
    
    ```
-   
 3. Create a virtual environment and install "requirements.txt" file using
    ```
    pip install -r requirements.txt 
