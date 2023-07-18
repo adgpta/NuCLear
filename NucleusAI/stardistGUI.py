@@ -1393,7 +1393,7 @@ class MainWindow(QMainWindow):
         self.config['twoDim'] = self.extr_inputs['2D'].isChecked()
         print('Feature Extration parameters ::: ', self.config)
 
-        f
+        
         run_local(self.config, destination='feature_extraction')
 
         log.finished.emit("thread %d" % thread_count)
