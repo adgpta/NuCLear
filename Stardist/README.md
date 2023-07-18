@@ -1,5 +1,3 @@
-Sure, I can help with that. Here's a markdown (.md) file layout that you can use.
-
 ```markdown
 # Stardist for Nucleus Segmentation
 
