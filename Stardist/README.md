@@ -1,5 +1,4 @@
-```markdown
-# Stardist for Nucleus Segmentation
+## Stardist for Nucleus Segmentation
 
 In case NucleusAI does not work for nucleus segmentation, you can use the Stardist tool instead.
 
