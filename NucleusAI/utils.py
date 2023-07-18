@@ -5,7 +5,7 @@ import os
 def run_local(config, destination='training'):
     print('Running Locally')
     from stardist_impl import train2d, train3d, predict2d, predict3d, validate2d, validate3d
-    from pyrad import extract_features_copy
+    #from pyrad import extract_features_copy
     from pyrad import extract_features_2D, extract_features_3D
 
     if destination == 'training':
