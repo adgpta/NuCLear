@@ -3,8 +3,8 @@ import glob
 import shutil
 
 #print [name for name in os.listdir(".") if os.path.isdir(name)]
-raw_dir = "/mnt/sds-hd/sd16j005/Aamrita_Jennifer/LiviasData/Raw/Raw"
-mask_dir = "/mnt/sds-hd/sd16j005/Aamrita_Jennifer/LiviasData/Raw/Stardist"
+raw_dir = ""
+mask_dir = ""
 
 # Change rootdir as you want:
 counter = 0
@@ -34,12 +34,12 @@ for raw_file in os.listdir(raw_dir):
     f.write("#SBATCH -o ./slurm_%j_Amrita_test_cluster_gpu.log\n")
     f.write("#SBATCH -e ./slurm_%j_Amrita_test_cluster_gpu.err\n")
     f.write("#SBATCH --mail-type=ALL\n")
-    f.write("#SBATCH --mail-user=johannes.knabbe@uni-heidelberg.de\n")
+    f.write("#SBATCH --mail-user=\n")
     f.write("########### End SLURM header ##########\n")
     f.write("export RAY_OBJECT_STORE_ALLOW_SLOW_STORAGE=1\n")
     f.write("export OMP_NUM_THREADS=16\n")
     f.write("eval \"$($HOME/miniconda/bin/conda shell.bash hook)\"\n")
-    f.write("conda activate process_pyrad\n")
+    f.write("conda activate [EnvName]\n")
     f.write("touch test\n")
     f.write("python extract_features-conn-comp_v4-server.py -i {} -m {} -o ./{} --threads 6 > ./{}.out 2>&1\n".format(raw_filename, mask_filename, raw_file, raw_file))
     f.write("exit")
