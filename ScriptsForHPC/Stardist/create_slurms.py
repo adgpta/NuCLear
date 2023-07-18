@@ -1,7 +1,7 @@
 import os
 import glob
 #print [name for name in os.listdir(".") if os.path.isdir(name)]
-inputdir = "/mnt/sds-hd/sd16j005/JohannesJorisLivia/ElifeRevision/Computing/23-08-2022"
+inputdir = ""
 print(inputdir)
 counter = 0
 for name in os.listdir(inputdir):
@@ -27,19 +27,19 @@ for name in os.listdir(inputdir):
                 f.write("#SBATCH -o ./slurm_%j_Amrita_test_cluster_gpu.log\n")
                 f.write("#SBATCH -e ./slurm_%j_Amrita_test_cluster_gpu.err\n")
                 f.write("#SBATCH --mail-type=ALL\n")
-                f.write("#SBATCH --mail-user=johannes.knabbe@uni-heidelberg.de\n")
+                f.write("#SBATCH --mail-user=\n")
                 f.write("########### End SLURM header ##########\n")
                 f.write("module load devel/cuda/11.6\n")
                 f.write("module load lib/cudnn/8.5.0-cuda-11.6\n")
                 f.write("module load devel/miniconda/3\n")
                 #f.write("cd $HOME/stardist/\n")
-                f.write("export USER=Amrita\n")
+                f.write("export USER=[Username]\n")
                 #f.write("eval \"$($HOME/miniconda/bin/conda shell.bash hook)\"\n")
                 f.write("conda activate csbdeep\n")
                 f.write("export OMP_NUM_THREADS=32\n")
                 f.write("export TF_FORCE_GPU_ALLOW_GROWTH=true\n")
                 #f.write("cd $HOME\n")
-                f.write("predict_stardist_3d -i {} -n  /mnt/sds-hd/sd16j005/Aamrita_Jennifer/Johannes/Model/15_May_2021 -m stardist -o {} -r 80 --ext tif > ./{}.out 2>&1\n".format(curr_dir, output_dir, name))
+                f.write("predict_stardist_3d -i {} -n  [ModelDirectory] -m [ModelName] -o {} -r 80 --ext tif > ./{}.out 2>&1\n".format(curr_dir, output_dir, name))
                 f.write("exit")
                 f.close()
         counter += 1
