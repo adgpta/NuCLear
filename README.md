@@ -65,11 +65,12 @@ To increase the number of nuclei for training and include possible variations, s
 
 The following scripts has been created with Python 3.10.
 
-1. Clone the repository 'SynthGen'.
+1. Install [git](https://git-scm.com/downloads). 
+2. Clone the repository 'SynthGen'.
    ```
    git clone https://github.com/adgpta/SynthGen.git
    ```
-2. **Conda**: Create a virtual environment and install "requirements.txt" file using
+3. **Conda**: Create a virtual environment and install "requirements.txt" file using
    ```
    conda create --name synthgen python=3.10
    pip install -r requirements.txt
@@ -79,15 +80,15 @@ The following scripts has been created with Python 3.10.
    pip install -r requirements.txt
    ```
    
-3. Run synthgen.py with the times of synthetic data to be generated. If no input it provided this script will create x9 fold augmented data by default.
+4. Run synthgen.py with the times of synthetic data to be generated. If no input it provided this script will create x9 fold augmented data by default.
    
    ```
    python synthgen.py 9
    ```
 
-4. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder as a dictionary file. 
+5. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder as a dictionary file. 
    
-5. To read evaluation data 'Evaluations.pkl' file via any IDE console use the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
+6. To read evaluation data 'Evaluations.pkl' file via any IDE console use the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
     
