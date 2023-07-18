@@ -1,0 +1,60 @@
+name: process_pyrad
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=4.5=1_gnu
+  - ca-certificates=2021.10.26=h06a4308_2
+  - certifi=2021.10.8=py39h06a4308_2
+  - ld_impl_linux-64=2.35.1=h7274673_9
+  - libffi=3.3=he6710b0_2
+  - libgcc-ng=9.3.0=h5101ec6_17
+  - libgomp=9.3.0=h5101ec6_17
+  - libstdcxx-ng=9.3.0=hd4cf53a_17
+  - ncurses=6.3=h7f8727e_2
+  - openssl=1.1.1m=h7f8727e_0
+  - pip=21.2.4=py39h06a4308_0
+  - python=3.9.7=h12debd9_1
+  - readline=8.1.2=h7f8727e_1
+  - setuptools=58.0.4=py39h06a4308_0
+  - sqlite=3.37.0=hc218d9a_0
+  - tk=8.6.11=h1ccaba5_0
+  - tzdata=2021e=hda174b7_0
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - xz=5.2.5=h7b6447c_0
+  - zlib=1.2.11=h7f8727e_4
+  - pip:
+    - attrs==21.4.0
+    - click==8.0.3
+    - connected-components-3d==3.8.0
+    - deprecated==1.2.13
+    - docopt==0.6.2
+    - filelock==3.4.2
+    - grpcio==1.43.0
+    - imageio==2.14.0
+    - jsonschema==4.4.0
+    - msgpack==1.0.3
+    - networkx==2.6.3
+    - numpy==1.21.5
+    - packaging==21.3
+    - pillow==8.4.0
+    - protobuf==3.19.3
+    - pykwalify==1.8.0
+    - pyparsing==3.0.6
+    - pyradiomics==3.0.1
+    - pyrsistent==0.18.1
+    - python-dateutil==2.8.2
+    - pywavelets==1.2.0
+    - pyyaml==6.0
+    - ray==1.9.2
+    - redis==4.1.1
+    - ruamel-yaml==0.17.20
+    - ruamel-yaml-clib==0.2.6
+    - scikit-image==0.19.1
+    - scipy==1.7.3
+    - simpleitk==2.0.2
+    - six==1.16.0
+    - tifffile==2021.11.2
+    - wrapt==1.13.3
+prefix: /home/hd/hd_hd/hd_dp143/miniconda/envs/process_pyrad
+
