@@ -1,0 +1,8 @@
+# To manually install the yml run: conda env create -f environment.yml
+name: Stardist_GUI
+channels:
+    - conda-forge
+dependencies:
+    - pip
+    - python=3.9
+    - cudnn=8.2
