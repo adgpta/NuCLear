@@ -45,7 +45,7 @@ We created a GUI version for StarDist, that can be accessed [here](https://githu
 Using the [PyRadiomics](https://github.com/AIM-Harvard/pyradiomics) python package, in total 107 radiomics features were extracted for each segmented nucleus after segmentation using StarDist, including, but not limited, to morphological features, intensity features and texture features. 
 
 The features are further used to train classifier models for each cell type provided in the ground truth data. This includes major cell types and sub types. This version can classify between the major cell types of Neurons, Glia and endothelial cells, along with the neuronal subtypes: excitatory and inhibitory neurons and glial subtypes: astroglia, microglia and oligodendroglia.
-A GUI based version for segmentation and extraction of radiomics feature can be found [here](https://github.com/SFB1158RDM/NucleusAI), the python script and installation files for feature extraction when masks are already present can be found [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython)
+A GUI based version for segmentation and extraction of radiomics feature can be found [here](https://github.com/SFB1158RDM/NucleusAI), the python script and installation files for feature extraction when masks are already present can be found [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython).
   
 
 ## Guide:
