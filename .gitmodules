@@ -1,6 +1,3 @@
-[submodule "NuCLear"]
-	path = NuCLear
-	url = https://github.com/adgpta/NuCLear.git
 [submodule "NucleusAI"]
 	path = NucleusAI
 	url = https://github.com/adgpta/NucleusAI.git
