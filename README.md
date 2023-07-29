@@ -209,11 +209,9 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 ## Upcoming features
 - Python scripts for celltype classification and training modules.
 
-------------------------------------------------------------------------------
 
-> **_For any issues, queries or to add more features please contact the authors**_
-
-------------------------------------------------------------------------------
+## Contact
+**_For any issues, queries or to add more features please contact the authors directly or open an issue**_
 
 
 ## How to cite 
