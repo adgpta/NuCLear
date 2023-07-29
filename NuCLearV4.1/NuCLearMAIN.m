@@ -16,8 +16,7 @@
 % % all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major
 % % class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. "toTrain" contains all the ids for the classes that needs to be trained. 
 % 
-% % Change directory to folder with NuCLearTrainingWorkspace.mat before
-% % start for default ground truth dataset.
+% % Change directory to folder with NuCLearTrainingWorkspace.mat for default ground truth dataset.
 % % NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with
 % % feature extraction data from pyradiomics. The classification model may be
 % % trained with real dataset (tableOrig) or combined with augmented / Synthetic
@@ -41,7 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % % Training module
-% Training 5 classifier model using datasets provided as tables in
+% Training multiple classifiers using datasets provided as tables in
 % NuCLearTrainingWorkspace. Combines all data (including synthetically
 % generated data in some case) to create dataset for training. The dataset
 % is divided into training, validation and test sets with a ratio of

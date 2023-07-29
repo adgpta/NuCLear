@@ -6,17 +6,11 @@
 function [] = NuCLassify(inputFileDir,SynthVer,ModelInfo)
 
 % Select the model based on the SynthVer.
-if SynthVer == "Orig"
-    classNet = ModelInfo.Orig.model;
+try
+    classNet = ModelInfo.(SynthVer).model;
     classNet.ver = SynthVer;
-
-elseif SynthVer == "Synth9"
-    classNet = ModelInfo.Synth9.model;
-    classNet.ver = SynthVer;
-
-else
-    fprintf("Please enter a valid SynthVer.")
-
+catch
+    fprintf("Please enter a valid SynthVer.");
 end
 
 fprintf("Running NuCLear classification.\n\nModel used: %s\n", SynthVer)
@@ -48,9 +42,14 @@ for ii = 1:len
     new_fl_nm = strsplit(filename,'.');
     new_fl_nm = string(new_fl_nm(1));
     fl = strsplit(new_fl_nm,'_');
-    Mouse = upper(fl(1));
-    Timepoint = upper(fl(2));
-    Position = upper(fl(3));
+    try
+        Mouse = upper(fl(1));
+        Timepoint = upper(fl(2));
+        Position = upper(fl(3));
+    catch
+        Timepoint = "TimePoint";
+        Position = "Position";
+    end
 
     fprintf('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Processing! %s\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>', filename);
 
