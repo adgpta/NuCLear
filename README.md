@@ -211,7 +211,7 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 
 
 ## Contact
-**_For any issues, queries or to add more features please contact the authors directly or open an issue**_
+For any issues, queries or to add more features please contact the authors directly or open an issue.
 
 
 ## How to cite 
