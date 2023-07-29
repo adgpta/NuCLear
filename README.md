@@ -9,6 +9,7 @@
 #### Author: Amrita Das Gupta
 #### Publications: [Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1); Amrita Das Gupta, Livia Asan, Jennifer John, Carlo A. Beretta, Thomas Kuner, Johannes Knabbe
 
+
 ## Outline
 
 NuCLear is a MLP neural network based cell type classification which can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1).
@@ -34,21 +35,25 @@ Using the segmentation editor in Fiji, ground truth data for nucleus segmentatio
   <video src="https://github.com/adgpta/NuCLear/assets/77382748/85b448fa-5190-4bb5-9e55-9c090099dbed" width="200"  height = "100" />
 </div>
 
-
 These ground truth sets (labelled and raw images) were used for training a segmentation model using [StarDist](https://github.com/stardist/stardist), in 3D.
 ![2](https://github.com/adgpta/NuCLear/assets/77382748/c1e4a16a-5574-4b60-adfb-3daabe800033)
 
-We created a GUI version for StarDist, that can be accessed [here](https://github.com/adgpta/NucleusAI), we provide also our trained segmentation model and exemplary data. 
 
 ## Feature extraction
   
 Using the [PyRadiomics](https://github.com/AIM-Harvard/pyradiomics) python package, in total 107 radiomics features were extracted for each segmented nucleus after segmentation using StarDist, including, but not limited, to morphological features, intensity features and texture features. 
 
 The features are further used to train classifier models for each cell type provided in the ground truth data. This includes major cell types and sub types. This version can classify between the major cell types of Neurons, Glia and endothelial cells, along with the neuronal subtypes: excitatory and inhibitory neurons and glial subtypes: astroglia, microglia and oligodendroglia.
-A GUI based version for segmentation and extraction of radiomics feature can be found [here](https://github.com/adgpta/NucleusAI), the python script and installation files for feature extraction when masks are already present can be found [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython).
-  
 
-## Guide:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+> _**A GUI based version for segmentation (using StarDist) and extraction of radiomics features (using Pyradiomics) can be found [here](https://github.com/adgpta/NucleusAI). Follow the step by step guide in the link for instructions on how to use. Sample data sets are provided in the [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) folder.**_
+
+> _**To use the feature extraction pipeline without using the GUI, please download the python scripts and follow the instructions in [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). FIles required to use the scripts are raw images and binary segmented masks.**_ 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Guide
 
 This repository contains the MATLAB and python implementations of NuCLear. The following describes step-by-step guide for ground truth extraction, training and classification for each case.
 
@@ -63,7 +68,7 @@ The GFP images were segmented with each nuclei being assigned an unique value an
 ![5](https://github.com/adgpta/NuCLear/assets/77382748/374a30a0-15b3-4b57-a65b-3febc61fc130)
 
 ### _Generate synthetic / augmented data_ 
-To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own, _**select only the radiomics features columns to be used for creating the synthetic datasets**_ and remove all non-essential columns from the csv files extracted via Pyradiomics. To create synthetic data follow the instructions below to run the python script:
+To increase the number of nuclei for training and include possible variations, synthetic datasets were created from nuclei features using the [synthetic data vault (SDV)](https://github.com/sdv-dev/SDV) package (Patki, Wedge et al. 2016), which utilizes correlations between features of the original dataset as well as mean, minimum or maximum values and standard deviations. CSV files containing pre-generated synthetic data from the provided ground truths are available in the (folder). To create your own, _**select only the radiomics features columns to be used for creating the synthetic datasets**_ and remove all non-essential columns (viz: radiomics version, python version,  etc.) from the csv files extracted via Pyradiomics. To create synthetic data follow the instructions below to run the python script:
 
 
 The following scripts has been created with Python 3.10.
@@ -91,7 +96,7 @@ The following scripts has been created with Python 3.10.
 
 5. When the pop up boxes appear, navigate to the folder for the ground truth data (.csv files) to be used to create synthetic data and subsequently, set the export folder. The evaluation data is saved in the export folder as a dictionary file. 
    
-6. To read evaluation data 'Evaluations.pkl' file via any IDE console use the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
+6. To read evaluation data `Evaluations.pkl` file via any IDE console use the code snippet below. Replace 'CELLTYPE' with the name of the desired cell type: eg, 'Neurons'.
     ```
     file_name = os.path.join(exportPath, 'Evaluations.pkl')
     
@@ -106,7 +111,12 @@ The following scripts has been created with Python 3.10.
     
 
 ### _Create training datasets_
+
 For training datasets, all the ground truth and augmented data should have an assigned Id in the first column of the csvs (both ground truth and synthetic datasets). The default class names and ids are as follows:
+
+<img align="right" height = "240" src="https://github.com/adgpta/NuCLear/assets/77382748/dc703618-d5e2-49dd-b7c9-0756777a7882">
+
+
   ```
   Neuron = "0"
   Astroglia = "1"
@@ -117,15 +127,20 @@ For training datasets, all the ground truth and augmented data should have an as
   Inhibitory Neuron = "100"
   ```
 
-
 - For MATLAB:
-  For predefined training data, "NuCLearTrainingWorkspace.mat" is provided in the 'Workspace' folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as arrays and save the headers to 'header' variable (refer to NuCLearTrainingWorkspace.mat for structure). Save the workspace.
-## CHECK
-- For Python:
-  For predefined training data, "NuCLearTrainingWorkspace.pkl" is provided in the 'Workspace' folder. To create your own training datasets, load all csvs as a dictionary (groundtruth + synthesized data) as tables and save as pickle file. 
+ 
+  For predefined training data, `NuCLearTrainingWorkspace.mat` is provided in the `Workspace` folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as arrays and save the headers to 'header' variable (refer to NuCLearTrainingWorkspace.mat for structure). Save the workspace.
 
-**TO NOTE:**
-_While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the variable name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron)._
+- For Python:
+ (_Will be added soon_)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+> **TO NOTE:**
+_**While creating data for subtypes for cells, the name should contain partial match to the corresponding major cell type name. As an example, for excitatory neuronal data, the variable name should contain 'Neuron' which would be the major cell type (eg: ExciNeuron). The sample workspace `NuCLearTrainingWorkspace.mat` is shown above.**_
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ### _Feature selection_
 To reduce overfitting, a sequential feature selection algorithm was used to select the most relevant features with minimum loss function (snippet below). 'tableOrig' is the table with all ground truth datasets without any synthetic data. For each training / classification ensemble, sequential feature selection was run to find the best columns to use, for eg., once on all the major classes and a second time for only excitatory and inhibitory neurons.
@@ -140,14 +155,20 @@ fun = @(XT,yT,Xt,yt)loss(fitcecoc(XT,yT),Xt,yt);
 [fs_all,history_all] = sequentialfs(fun,(tableOrig2(:,2:end)),nuclei,'cv',c2,'options',opts)
 
 ```
+-----------------------------
+
+> **TO NOTE:**
+_**Default features are pre-selected for the classes. The selected features are provided in the published article.**_
+
+---------------------------------
 
 ### _Training NuCLear classifiers_
-#### **Training Module:**
+
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. 'ClassDef' is defined for default cell types. 
 
-NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (refer to python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
+`NuCLearTrainingWorkspace.mat` contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (generated from the python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
   
-#### MATLAB
+#### MATLAB training
 
 <img align="right" height = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/2f193042-2c4b-4805-bc45-92fa704cb20a">
 
@@ -162,16 +183,48 @@ NuCLearTrainingWorkspace.mat contains 1 variable for each cell type with feature
 The file saved is a structure containining the trained models. 'ClassDef' contains information about datasets used for training and 'TrainedModels' shows the names of the models that are trained. 'trainedNet' contains the trained classifiers, accuracy, test set and prediction sets. For more details, refer to the publication.
 
 ### _Cell type classification_
-#### **Classification Module:**
-Add input file directory containing the feature extraction csvs from pyradiomics feature extraction script. Batch processes all csvs from pyradiomics feature extraction in inputFileDir. SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
 
-#### MATLAB
+<img align="right" width = "640" src="https://github.com/adgpta/NuCLear/assets/77382748/62406ac7-ca9c-46e2-8472-42b6c71bb619">
+
+This module classifies all the csvs extracted via pyradiomics feature extraction using either the [GUI](https://github.com/adgpta/NucleusAI) or the feature extraction [script](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
+
+#### MATLAB Classification
 
 1. Add folder containing all scripts and previously saved models to MATLAB path.
 2. Run NuCLearClassificationModule.m.
-3. Select model to use for classification.
-4. Specify path to input directory containing csvs extracted via PyRadiomics.
+3. Select the trained model to use for classification.
+4. Select the directory containing csvs with radiomics features extracted via [here](https://github.com/adgpta/NucleusAI/blob/master/README.md#feature-extraction-based-on-pyradiomics).
 5. Select training model. _(Optional: Only for multiple models save in a single file)_.
+6. The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
+7. The `Prediction_results` folder contains the final predictions for each file. 
+8. The output `*_Classified.csv` file has information for animal number, timepoint, position of the stacks, binary mask label, centroids for each nuclei defining its position in 3D space, type of cell the nuclei belongs to and subclass (if any).
 
-The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
+------------------------------------------------------------------------------
 
+> **TO NOTE:**
+**_The filenames of the .csv files should be in the format of `Animal_Timepoint_Position.tif`. The animal, timepoint and position MUST be separated by an underscore.**_
+
+------------------------------------------------------------------------------
+
+## Upcoming features
+- Python scripts for celltype classification and training modules.
+
+------------------------------------------------------------------------------
+
+> **_For any issues, queries or to add more features please contact the authors**_
+
+------------------------------------------------------------------------------
+
+
+## How to cite 
+```
+@article {Gupta2022.10.03.510670,
+	author = {Amrita Das Gupta and Livia Asan and Jennifer John and Carlo A. Beretta and Thomas Kuner and Johannes Knabbe},
+	title = {Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning},
+	elocation-id = {2022.10.03.510670},
+	year = {2022},
+	doi = {10.1101/2022.10.03.510670},
+}
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------
