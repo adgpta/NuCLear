@@ -129,7 +129,7 @@ For training datasets, all the ground truth and augmented data should have an as
 
 - For MATLAB:
  
-  For predefined training data, `NuCLearTrainingWorkspace.mat` is provided in the `Workspace` folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as arrays and save the headers to 'header' variable (refer to NuCLearTrainingWorkspace.mat for structure). Save the workspace.
+  For predefined training data, `NuCLearTrainingWorkspace.mat` is provided in the "[Workspace](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Workspace)" folder. To create your own training datasets, load all csvs (groundtruth + synthesized data) as arrays and save the headers to 'header' variable (refer to NuCLearTrainingWorkspace.mat for structure). Save the workspace.
 
 - For Python:
  (_Will be added soon_)
@@ -166,14 +166,14 @@ _**Default features are pre-selected for the classes. The selected features are 
 
 Designed to train any number of major classes and sub classes of cells. The training is performed on all major classes for classes defined as "Maj" in the variable "ClassDef". For classes defined as "Sub" in "ClassDef", the training is done only on data for all subclasses belonging to the same major class. For eg. to train the classifiers for excitatory neurons, the training will be performed on all neuronal subclass data, i.e. excitatory and inhibitory. The "ClassDef" variable MUST contain ALL the training data available, with correct denotion of "Sub" or "Maj" with the subclass names containing parts of the major class. For eg. excitatory and inhibitory neurons are labelled as "ExciNeuron" and "InhibNeuron" containing "Neuron", which defines they belong to the "Neuron" class. 'ClassDef' is defined for default cell types. 
 
-`NuCLearTrainingWorkspace.mat` contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (generated from the python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
+[NuCLearTrainingWorkspace.mat](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Workspace) contains 1 variable for each cell type with feature extraction data from pyradiomics. The classification model may be trained with real dataset or combined with augmented / Synthetic datasets (generated from the python script SynthGen.py) created from the real dataset. Multiple classifiers are trained using datasets provided as tables in NuCLearTrainingWorkspace. The dataset is divided into training, validation and test sets with a ratio of 70:15:15 respectively. 
   
 #### MATLAB training
 
 <img align="right" height = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/2f193042-2c4b-4805-bc45-92fa704cb20a">
 
 1. Add folder containing all scripts and previously saved workspaces to MATLAB path. _(Optional)_ add folders containing provided workspaces and models if using predefined ground truths and pretrained models.
-2. Run NuCLearTrainingModule.m.
+2. Run [NuCLearTrainingModule.m](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Scripts).
 3. Load training workspace containing all training datasets created earlier.
 4. Select the datasets that are to be used for training. Training will vary depending on the datasets used. All major categories will be trained together and the sub categories will be trained with only the other sub categories of the same major category. eg. if training excitatory and inhibitory neurons, they will only be trained against each other.
 5. Enter the definitions for new classes if any. The defaults are already added.
@@ -186,13 +186,13 @@ The file saved is a structure containining the trained models. 'ClassDef' contai
 
 <img align="right" width = "640" src="https://github.com/adgpta/NuCLear/assets/77382748/62406ac7-ca9c-46e2-8472-42b6c71bb619">
 
-This module classifies all the csvs extracted via pyradiomics feature extraction using either the [GUI](https://github.com/adgpta/NucleusAI) or the feature extraction [script](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9))
+This module classifies all the csvs extracted via pyradiomics feature extraction using either the [GUI](https://github.com/adgpta/NucleusAI) or the feature extraction [script](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9)). To use the default training model, save the model from [here](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Model).
 
 #### MATLAB Classification
 
 1. Add folder containing all scripts and previously saved models to MATLAB path.
-2. Run NuCLearClassificationModule.m.
-3. Select the trained model to use for classification.
+2. Run [NuCLearClassificationModule.m](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Scripts).
+3. Select the trained model to use for classification. A pre-trained model is provided [here](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Model).
 4. Select the directory containing csvs with radiomics features extracted via [here](https://github.com/adgpta/NucleusAI/blob/master/README.md#feature-extraction-based-on-pyradiomics).
 5. Select training model. _(Optional: Only for multiple models save in a single file)_.
 6. The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
