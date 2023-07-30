@@ -43,29 +43,28 @@ These ground truth sets (labelled and raw images) were used for training a segme
   
 Using the [PyRadiomics](https://github.com/AIM-Harvard/pyradiomics) python package, in total 107 radiomics features were extracted for each segmented nucleus after segmentation using StarDist, including, but not limited, to morphological features, intensity features and texture features. 
 
-The features are further used to train classifier models for each cell type provided in the ground truth data. This includes major cell types and sub types. This version can classify between the major cell types of Neurons, Glia and endothelial cells, along with the neuronal subtypes: excitatory and inhibitory neurons and glial subtypes: astroglia, microglia and oligodendroglia.
+The features were further used to train classifier models for each cell type provided in the ground truth data. This included major cell types and sub types. This version can classify between the major cell types of neurons, glia and endothelial cells, along with the neuronal subtypes: excitatory and inhibitory neurons and glial subtypes: astroglia, microglia and oligodendroglia.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> _**A GUI based version for segmentation (using StarDist) and extraction of radiomics features (using Pyradiomics) can be found [here](https://github.com/adgpta/NucleusAI). Follow the step by step guide in the link for instructions on how to use. Sample data sets are provided in the [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) folder.**_
+> _**A GUI based version for segmentation (using StarDist) and extraction of radiomics features (using Pyradiomics) can be found [here](https://github.com/adgpta/NucleusAI). Follow the step by step guide in the link for instructions on how to install and use it. Sample data sets are provided in the [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) folder.**_
 
 > _**If you plan to use your own StarDist installation, our pre-trained nucleus segmentation model can be found [here](https://github.com/adgpta/NuCLear/tree/main/StardistModel/SegModel).**_
 
-> _**To use the feature extraction pipeline without using the GUI, please download the python scripts and follow the instructions in [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). FIles required to use the scripts are raw images and binary segmented masks.**_ 
+> _**To use the feature extraction pipeline without using the GUI, please download the python scripts and follow the instructions in [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). Files required to use the scripts are raw images and binary segmented masks.**_ 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Guide
 
-This repository contains the MATLAB and python implementations of NuCLear. The following describes step-by-step guide for ground truth extraction, training and classification for each case.
+This repository contains the MATLAB and python implementations of NuCLear. The following step-by-step guide describes ground truth extraction, training and classification.
 
 
 ### _Generate ground truth data for training_
-To generate classifier models for each cell type, supervised training was performed using ground truth datasets from two-photon volumetric fluorescence imaging. GFP and RFP stacks were acquired (with the RFP indicating different cell types). 
+To perform supervised training of the deep neural network for cell type classification, a ground truth dataset was created using the two-photon volumetric fluorescence data, automatically segmented nuclei, which were assigned a unique label, and the radiomics features. Using the red fluorescence channel, nuclei belonging to a specific cell type were manually identified after creating a composite image of the green and red fluorescence images. 
 ![4](https://github.com/adgpta/NuCLear/assets/77382748/337adb0c-5600-4fc1-b81b-723637f049f0)
 
-The GFP images were segmented with each nuclei being assigned an unique value and their radiomics features were extracted in a .csv file. Positive cells for each type were identified by overlaying the RFP and GFP images as described in the methods [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1). For each positive cell, the corresponding label was identified from the segemented images and all the radiomics features of the said label was extracted and saved.
-
+This allowed for identification of the label by synchronizing the composite image and the StarDist output in ImageJ/Fiji and extraction of radiomics features (saved in a .csv file) for these individual nuclei.  
 
 ![5](https://github.com/adgpta/NuCLear/assets/77382748/374a30a0-15b3-4b57-a65b-3febc61fc130)
 
