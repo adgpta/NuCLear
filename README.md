@@ -11,12 +11,10 @@
 
 
 ## Outline
-<img align="right" height = 240 src="https://github.com/adgpta/NuCLear/assets/77382748/16d52195-6060-4cdc-a7a2-a1a34b7c2540">
-
 
 NuCLear is a neural network based cell type classification which can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1).
 
-![1111](https://github.com/adgpta/NuCLear/assets/77382748/94f90f01-bd83-421b-849c-1970c171756c)
+![image](https://github.com/adgpta/NuCLear/assets/77382748/68e2677d-3054-4ea3-bb95-aca35d6c00fe)
 
 
 Our application of the NuCLear algorithm is performed on in-vivo two-photon 3D images of histone 2B-eGFP-labeled cell nuclei in the mouse brain. Using StarDist (https://github.com/stardist/stardist) to segment the nuclei and PyRadiomics (https://github.com/AIM-Harvard/pyradiomics) to extract various features, NuCLear trains several classifiers depending on the data provided by the user to classify all cells per imaging volume. Beyond in-vivo imaging, provided there is good training data, NuCLear would be able to work with any fluorescence-based microscopy images and perform in any organ or model system. 
