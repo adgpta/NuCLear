@@ -48,7 +48,7 @@ The features are further used to train classifier models for each cell type prov
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 > _**A GUI based version for segmentation (using StarDist) and extraction of radiomics features (using Pyradiomics) can be found [here](https://github.com/adgpta/NucleusAI). Follow the step by step guide in the link for instructions on how to use. Sample data sets are provided in the [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) folder.**_
-> _** If you plan to use your own StarDist installation, our pre-trained nucleus segmentation model can be found [here](https://github.com/adgpta/NuCLear/tree/main/StardistModel/SegModel).**_
+> _**If you plan to use your own StarDist installation, our pre-trained nucleus segmentation model can be found [here](https://github.com/adgpta/NuCLear/tree/main/StardistModel/SegModel).**_
 
 > _**To use the feature extraction pipeline without using the GUI, please download the python scripts and follow the instructions in [here](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). FIles required to use the scripts are raw images and binary segmented masks.**_ 
 
