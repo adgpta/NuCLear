@@ -36,7 +36,7 @@ Using the segmentation editor in Fiji, ground truth data for nucleus segmentatio
 </div>
 
 These ground truth sets (labelled and raw images) were used for training a segmentation model using [StarDist](https://github.com/stardist/stardist), in 3D.
-![2](https://github.com/adgpta/NuCLear/assets/77382748/c1e4a16a-5574-4b60-adfb-3daabe800033)
+![2](https://github.com/adgpta/NuCLear/assets/77382748/c1e4a16a-5574-4b60-adfb-3daabe800033) The trained model can be found [here](https://github.com/adgpta/NuCLear/tree/main/StardistModel/SegModel).
 
 
 ## Feature extraction
