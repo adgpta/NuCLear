@@ -11,6 +11,8 @@
 
 
 ## Outline
+<img align="right" height = 240 src="https://github.com/adgpta/NuCLear/assets/77382748/16d52195-6060-4cdc-a7a2-a1a34b7c2540">
+
 
 NuCLear is a neural network based cell type classification which can be used to train and classify cell types and their subtypes based on nuclei features obtained from fluorescent imaging as described [here](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1).
 
@@ -194,7 +196,7 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 1. Add folder containing all scripts and previously saved models to MATLAB path.
 2. Run [NuCLearClassificationModule.m](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Scripts).
 3. Select the trained model to use for classification. A pre-trained model is provided [here](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Model).
-4. Select the directory containing csvs with radiomics features extracted via [here](https://github.com/adgpta/NucleusAI/blob/master/README.md#feature-extraction-based-on-pyradiomics).
+4. Select the directory containing csvs with radiomics features extracted via [here](https://github.com/adgpta/NucleusAI/blob/master/README.md#feature-extraction-based-on-pyradiomics). Sample extraction files can be found [here](https://github.com/adgpta/NucleusAI/tree/master/SampleData/PyradiomicsFiles).
 5. Select training model. _(Optional: Only for multiple models save in a single file)_.
 6. The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
 7. The `Prediction_results` folder contains the final predictions for each file. 
