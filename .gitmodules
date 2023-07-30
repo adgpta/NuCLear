@@ -1,0 +1,6 @@
+[submodule "NucleusAI"]
+	path = NucleusAI
+	url = https://github.com/adgpta/NucleusAI
+[submodule "SynthGen"]
+	path = SynthGen
+	url = https://github.com/adgpta/SynthGen
