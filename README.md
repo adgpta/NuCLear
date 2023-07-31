@@ -34,12 +34,12 @@ Using the segmentation editor in Fiji, ground truth data for nucleus segmentatio
 
 
 <div align="center">
-  <video src="https://github.com/adgpta/NuCLear/assets/77382748/31870c3f-8b7e-4601-9b2b-be5ca4f3b658" width="50"/>
+	<video src="https://github.com/adgpta/NuCLear/assets/77382748/309bb6ef-8548-4a88-9d11-6db10067aed2" />
 </div>
 
 
 <div align="center">
-  <video src="https://github.com/adgpta/NuCLear/assets/77382748/d8c1c2d4-013d-46f8-86b5-5293a379ee75" height = "100" />
+	<video src="https://github.com/adgpta/NuCLear/assets/77382748/d8c1c2d4-013d-46f8-86b5-5293a379ee75" />
 </div>
 
 These ground truth sets (labelled and raw images) were used for training a segmentation model using [StarDist](https://github.com/stardist/stardist), in 3D. The trained model can be found [here](https://github.com/adgpta/NuCLear/tree/main/StardistModel/SegModel).
@@ -228,6 +228,12 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 6. The results are exported in the input directory in a folder named as "NuCLear[modelname][datestamp]". Within the folder are the raw predictions for each classifier for each nuclei, cleaned predictions and final results.
 7. The `Prediction_results` folder contains the final predictions for each file. 
 8. The output `*_Classified.csv` file has information for animal number, timepoint, position of the stacks, binary mask label, centroids for each nuclei defining its position in 3D space, type of cell the nuclei belongs to and subclass (if any).
+
+
+<div align = "center">
+	<video src= "https://github.com/adgpta/NuCLear/assets/77382748/847ef8cf-0071-4e3c-a769-ff046c2390e6" />
+</div>
+
 
 
 
