@@ -229,12 +229,11 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 7. The `Prediction_results` folder contains the final predictions for each file. 
 8. The output `*_Classified.csv` file has information for animal number, timepoint, position of the stacks, binary mask label, centroids for each nuclei defining its position in 3D space, type of cell the nuclei belongs to and subclass (if any).
 
+<br />
 
 <div align = "center">
 	<video src= "https://github.com/adgpta/NuCLear/assets/77382748/847ef8cf-0071-4e3c-a769-ff046c2390e6" />
 </div>
-
-
 
 
 ------------------------------------------------------------------------------
@@ -244,8 +243,6 @@ This module classifies all the csvs extracted via pyradiomics feature extraction
 
 ------------------------------------------------------------------------------
 
-
-<br />
 
 <br />
 
