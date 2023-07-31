@@ -37,6 +37,7 @@ Using the segmentation editor in Fiji, ground truth data for nucleus segmentatio
   <video src="https://github.com/adgpta/NuCLear/assets/77382748/31870c3f-8b7e-4601-9b2b-be5ca4f3b658" width="50"/>
 </div>
 
+
 <div align="center">
   <video src="https://github.com/adgpta/NuCLear/assets/77382748/d8c1c2d4-013d-46f8-86b5-5293a379ee75" height = "100" />
 </div>
