@@ -1,6 +1,5 @@
 
-![7](https://github.com/adgpta/NuCLear/assets/77382748/98c744d8-f4a7-41a9-b624-a16651c3e6d1)
-
+![7_2](https://github.com/adgpta/NuCLear/assets/77382748/e8619e69-8836-4b1e-b6aa-d1076014bab3)
 
 <img align="right" height = 240 src="https://github.com/adgpta/NuCLear/assets/77382748/b9d478f2-9fd3-4b71-8d13-59aea0c0fb59">
 
