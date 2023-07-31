@@ -215,8 +215,7 @@ The file saved is a structure containining the trained models. 'ClassDef' contai
 This module classifies all the csvs extracted via pyradiomics feature extraction using either the [GUI](https://github.com/adgpta/NucleusAI) or the feature extraction [script](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9)). To use the default training model, save the model from [here](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Model).
 
 
-<img align="right" width = "440" src="https://github.com/adgpta/NuCLear/assets/77382748/76ae6db6-9ef6-4482-9ce2-22666df39d98">
-
+<img align="right" width = "450" src="https://github.com/adgpta/NuCLear/assets/77382748/76ae6db6-9ef6-4482-9ce2-22666df39d98">
 
 #### MATLAB Classification
 
