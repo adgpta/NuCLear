@@ -28,11 +28,11 @@ Using the segmentation editor in Fiji, ground truth data for nucleus segmentatio
 
 
 <div align="center">
-  <video src="https://github.com/adgpta/NuCLear/assets/77382748/3a002c61-110e-45cc-9141-8a5234d33911" width="200" height = "100" />
+  <video width = 360 src="https://github.com/adgpta/NuCLear/assets/77382748/3a002c61-110e-45cc-9141-8a5234d33911" width="200" height = "100" />
 </div>
 
 <div align="center">
-  <video src="https://github.com/adgpta/NuCLear/assets/77382748/85b448fa-5190-4bb5-9e55-9c090099dbed" width="200"  height = "100" />
+  <video width = 360 src="https://github.com/adgpta/NuCLear/assets/77382748/85b448fa-5190-4bb5-9e55-9c090099dbed" width="200"  height = "100" />
 </div>
 
 These ground truth sets (labelled and raw images) were used for training a segmentation model using [StarDist](https://github.com/stardist/stardist), in 3D.
@@ -185,7 +185,7 @@ The file saved is a structure containining the trained models. 'ClassDef' contai
 
 ### _Cell type classification_
 
-<img align="right" width = "640" src="https://github.com/adgpta/NuCLear/assets/77382748/62406ac7-ca9c-46e2-8472-42b6c71bb619">
+<img align="right" width = "480" src="https://github.com/adgpta/NuCLear/assets/77382748/62406ac7-ca9c-46e2-8472-42b6c71bb619">
 
 This module classifies all the csvs extracted via pyradiomics feature extraction using either the [GUI](https://github.com/adgpta/NucleusAI) or the feature extraction [script](https://github.com/adgpta/NuCLear/tree/main/FeatureExtractionPython). SynthVer specifies the model to be used for classification which depends on the training dataset (Original dataset (Orig) or Synthesized dataset (Synth9)). To use the default training model, save the model from [here](https://github.com/adgpta/NuCLear/tree/main/NuCLearV4.1/Model).
 
