@@ -7,6 +7,8 @@
 ### Nucleus-instructed tissue composition using deep learning - _A neural network based cell type classification using nuclei features from fluorescent imaging in 3D_.
 #### Version: 4.1
 #### Author: Amrita Das Gupta
+
+
 #### Publications: [Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1); Amrita Das Gupta, Livia Asan, Jennifer John, Carlo A. Beretta, Thomas Kuner, Johannes Knabbe
 
 
