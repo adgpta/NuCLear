@@ -10,8 +10,11 @@ To get started, follow these steps:
    ```
 
 2. Activate the Conda environment.
+   ```
+   conda activate process_pyrad
+   ```
 
-3. Execute the following code:
+4. Execute the following code:
    ```
    python extract_features-conn-comp_v4-server.py -i [RawFile] -m [MaskFile] -o [ResultsFile.csv] --threads [NrOfThreadsForParallelization]
    ```
