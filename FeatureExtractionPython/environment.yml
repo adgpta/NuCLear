@@ -56,5 +56,5 @@ dependencies:
     - six==1.16.0
     - tifffile==2021.11.2
     - wrapt==1.13.3
-prefix: /home/hd/hd_hd/hd_dp143/miniconda/envs/process_pyrad
+
 
