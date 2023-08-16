@@ -4,17 +4,25 @@ If NucleusAI is unable to perform the feature extraction task, you can utilize t
 
 To get started, follow these steps:
 
-1. Create an environment using the provided .yml file:
+1. Clone the github
+   ```
+   git clone https://github.com/adgpta/NuCLear/
+   ```
+2. Change directory into "FeatureExtractionPython"
+3. Create an environment using the provided .yml file:
    ```
    conda env create -f environment.yml
    ```
 
-2. Activate the Conda environment.
+4. Activate the Conda environment.
    ```
    conda activate process_pyrad
    ```
-
-4. Execute the following code:
+5. Install dependencies via pip
+   ```
+   pip install -f requirements.txt
+   ```
+6. Execute the following code:
    ```
    python extract_features-conn-comp_v4-server.py -i [RawFile] -m [MaskFile] -o [ResultsFile.csv] --threads [NrOfThreadsForParallelization]
    ```
