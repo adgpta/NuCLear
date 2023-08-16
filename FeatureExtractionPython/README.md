@@ -9,9 +9,9 @@ To get started, follow these steps:
    git clone https://github.com/adgpta/NuCLear/
    ```
 2. Change directory into "FeatureExtractionPython"
-3. Create an environment using the provided .yml file:
+3. Create an environment in conda with python 3.9
    ```
-   conda env create -f environment.yml
+   conda create -n process_pyrad python=3.9
    ```
 
 4. Activate the Conda environment.
