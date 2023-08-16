@@ -31,4 +31,4 @@ Where:
 Please replace `{InputFolder}`, `{ModelFolder}`, `{NameOfModel}`, and `{OutputFolder}` with the appropriate paths on your system.
 
 The `-r 80 --ext tif` part of the command sets memory usage at 80 %.
-Sample datasets and a pretrained model for nucleus segmentation can be found [here](https://github.com/adgpta/NucleusAI/tree/master/SampleData)
+Sample datasets and a pretrained model for nucleus segmentation can be found [here](https://github.com/adgpta/NucleusAI/tree/master/SampleData).
