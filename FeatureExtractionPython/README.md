@@ -34,4 +34,4 @@ Replace the placeholders with the appropriate values:
 - `[ResultsFile.csv]`: The desired name or path of the resulting CSV file that will store the extracted features.
 - `[NrOfThreadsForParallelization]`: The number of threads to use for parallelization during the feature extraction process.
 
-By following these steps, you can extract features using the provided Python script. Sample datasets in [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) in the folders RawImages and Masks. 
+By following these steps, you can extract features using the provided Python script. Sample datasets are provided in [SampleData](https://github.com/adgpta/NucleusAI/tree/master/SampleData) in the folders RawImages and Masks. 
