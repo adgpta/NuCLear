@@ -19,7 +19,7 @@ conda activate stardist
 Once you've installed and activated the Stardist Conda environment, you can run the following command to perform nucleus segmentation:
 
 ```bash
-predict_stardist_3d -i {InputFolder} -n {ModelFolder} -m {NameOfModel} -o {OutputFolder} -r 80 --ext tif
+python predict_stardist_3d.py -i {InputFolder} -n {ModelFolder} -m {NameOfModel} -o {OutputFolder} -r 80 --ext tif
 ```
 
 Where:
@@ -32,3 +32,4 @@ Please replace `{InputFolder}`, `{ModelFolder}`, `{NameOfModel}`, and `{OutputFo
 
 The `-r 80 --ext tif` part of the command sets memory usage at 80 %.
 ```
+Sample datasets and a pretrained model for nucleus segmentation can be found [here](https://github.com/adgpta/NucleusAI/tree/master/SampleData)
