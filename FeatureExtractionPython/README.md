@@ -20,7 +20,7 @@ To get started, follow these steps:
    ```
 5. Install dependencies via pip
    ```
-   pip install -f requirements.txt
+   pip install -r requirements.txt
    ```
 6. Execute the following code:
    ```
