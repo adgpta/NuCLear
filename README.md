@@ -9,6 +9,9 @@
 #### Author: Amrita Das Gupta
 #### Publications: [Comprehensive monitoring of tissue composition using in vivo imaging of cell nuclei and deep learning](https://www.biorxiv.org/content/10.1101/2022.10.03.510670v1); Amrita Das Gupta, Jennifer John, Livia Asan, Carlo A. Beretta, Thomas Kuner, Johannes Knabbe
 
+## Dataset availability
+All datasets used in the study can be found [here](https://heidata.uni-heidelberg.de/dataset.xhtml?persistentId=doi:10.11588/data/L3PITA)
+
 <br />
 
 ## OUTLINE
