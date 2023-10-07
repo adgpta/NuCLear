@@ -68,7 +68,7 @@ def run_prediction(image_files, model_path, output_dir, memory_usage):
         if memory_usage==100:
             print('Using the whole memory in without tiles ', im.shape)
             im = normalize(im, lower_percentile, upper_percentile, axis=ax_norm)
-            pred, _ = model.predict_instances(im)
+            pred, _ = model.predict_instances(im, n_tiles=model._guess_n_tiles(im))
         else:
             if len(model.config.axes)>3:
                 print(f'Warning: Model {model.config.axes} axes configutation doesn\'t match image dimensions {im.shape}. Using ZYX from ax_norm={ax_norm}')
